@@ -30,7 +30,7 @@
             </div>
             <nav class="st-nav st-desktop-nav">
               <ul class="st-nav-list onepage-nav">
-                <li class="st-has-children"><a href="#home" class="smooth-scroll">Home</a>
+                <li class="st-has-children"><a href="#home" @click="changeTab('home')" :class="{'active': menuActive === 'home'}" class="smooth-scroll">Home</a>
                   <!-- <ul>
                     <li><a href="index.html">Minimal Landing</a></li>
                     <li><a href="home2.html">Animated Home</a></li>
@@ -41,12 +41,12 @@
                     <li><a href="home6.html">Minimal Landing 2</a></li>
                   </ul> -->
                 </li>
-                <li><a href="#about" class="smooth-scroll">About</a></li>
-                <li><a href="#service" class="smooth-scroll">Service</a></li>
-                <li><a href="#portfolio" class="smooth-scroll">Portfolio</a></li>
-                <li><a href="#team" class="smooth-scroll">Team</a></li>
-                <li><a href="#price" class="smooth-scroll">Price</a></li>
-                <li class="st-has-children"><a href="#blog" class="smooth-scroll">Blog</a>
+                <li><a href="#about" class="smooth-scroll" @click="changeTab('about')" :class="{'active': menuActive === 'about'}">About</a></li>
+                <li><a href="#service" class="smooth-scroll" @click="changeTab('service')" :class="{'active': menuActive === 'service'}">Service</a></li>
+                <li><a href="#portfolio" class="smooth-scroll" @click="changeTab('portfolio')" :class="{'active': menuActive === 'portfolio'}">Portfolio</a></li>
+                <li><a href="#team" class="smooth-scroll" @click="changeTab('team')" :class="{'active': menuActive === 'team'}">Team</a></li>
+                <li><a href="#price" class="smooth-scroll" @click="changeTab('price')" :class="{'active': menuActive === 'price'}">Price</a></li>
+                <li class="st-has-children"><a href="#blog" class="smooth-scroll" @click="changeTab('blog')" :class="{'active': menuActive === 'blog'}">Blog</a>
                   <!-- <ul>
                     <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
                     <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
@@ -56,7 +56,7 @@
                     <li><a href="blog-details-no-sidebar.html">Blog Details No Sidebar</a></li>
                   </ul> -->
                 </li>
-                <li><a href="#contact" class="smooth-scroll">Contact</a></li>
+                <li><a href="#contact" class="smooth-scroll" @click="changeTab('contact')" :class="{'active': menuActive === 'contact'}">Contact</a></li>
               </ul>
             </nav><!-- .st-nav -->
           </div><!-- .st-nav-wrap -->
@@ -875,7 +875,16 @@
 
 <script>
   export default {
-    
+    data () {
+      return {
+        menuActive: 'home'
+      }
+    },
+    methods: {
+      changeTab (tab) {
+        this.menuActive = tab
+      }
+    }
   }
 </script>
 
